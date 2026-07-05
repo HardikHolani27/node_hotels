@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 //define the mongodb connection url
-const mongoURL = process.env.MONGODB_URL_LOCAL //Replace 'mydatabase' with ur database , this url was for local
+//const mongoURL = process.env.MONGODB_URL_LOCAL //Replace 'mydatabase' with ur database , this url was for local
 const mongoURL = process.env.MONGODB_URL; //this url is mongodb atlas wala url
 
 //set up mongodb connection
