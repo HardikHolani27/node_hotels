@@ -37,13 +37,15 @@
 //express
 const express = require('express');
 const app = express();
-const db = require('./db');
 // const person = require('./models/person');
 // const MenuItem = require('./models/MenuItem');
+require('dotenv').config();
+const db = require('./db');
 
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());  //abhi we are providing data in json form isliye we are using bodyParser.json, ye karega kya json data ko uthayega , usko object me pass/convert karega and saara data req.body me store kar dega
+const PORT = process.env.PORT || 3000; //iska mtlb kya hua - agr process.env.PORT me port ka value available hua toh vo usko use karega else 3000 ko if nahi raha toh
 
 app.get('/', (req, res) => {
   res.send('Welcome to our Hotel')
@@ -134,8 +136,9 @@ const menuItemRoutes = require('./routes/menuItemRoutes');
 app.use('/person', personRoutes);
 app.use('/menu', menuItemRoutes);
 
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000')
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`)
 })
 
 //vo apan postman me post krte koi url pe toh vo visibly nahi dikhata ki process hogyi so for that we can do this 
